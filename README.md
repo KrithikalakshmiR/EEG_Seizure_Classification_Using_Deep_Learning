@@ -182,9 +182,7 @@ The db4 wavelet gives five sub-bands (D1–D4, A4), each described by energy, re
 
 Energy: `E_j = Σ c_{j,k}²`; relative energy: `RE_j = E_j / Σ_i E_i`; Shannon entropy: `H_j = − Σ p_{j,k} log p_{j,k}` with `p_{j,k} = c_{j,k}² / E_j`.
 
-![Fig. 2 Four-level DWT filter-bank decomposition](figures/fig2_dwt_filter_bank.png)
-
-**Fig. 2 (original, page 5).** Four-level DWT filter-bank decomposition of an EEG segment sampled at 173.61 Hz. Detail sub-bands D1–D4 and the final approximation A4 are used for feature extraction; frequency ranges are nominal.
+.
 
 ### Model C: 91-feature bank
 
@@ -206,10 +204,6 @@ MI between each feature and the class label is estimated on **training data only
 
 Ties favour smaller k, and the subset is fixed before test evaluation.
 
-![Fig. 7 Top-20 features by mutual information](figures/fig7_top20_mutual_information.png)
-
-**Fig. 7 (original, page 13).** The 20 features with the highest mutual information with the class label on the training windows of the primary split (nats).
-
 ## 8. Model Training and Classification
 
 | Setting | Models A and B | Model C (GDF-Net) |
@@ -228,9 +222,6 @@ Ties favour smaller k, and the subset is fixed before test evaluation.
 - **GDF-Net augmentation:** raw inputs are shifted by up to ±25 samples and amplitude-scaled between 0.9 and 1.1.
 - Experiments ran on TensorFlow using a Google Colab GPU. The architecture and hyperparameters were fixed before testing, and the test set was not used during tuning.
 
-![Fig. 9 Training and validation curves](figures/fig9_training_curves.png)
-
-**Fig. 9 (original, page 13).** Training and validation loss (left) and accuracy of the main output (right) of one GDF-Net network on the primary split. Training stopped at epoch 41 with best weights from epoch 23 (98.4% training, 95.8% validation accuracy), which the paper describes as moderate overfitting controlled by early stopping.
 
 ## 9. Evaluation Metrics
 
