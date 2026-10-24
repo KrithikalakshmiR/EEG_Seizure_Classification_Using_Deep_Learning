@@ -91,11 +91,6 @@ flowchart TD
 
 *Simplified Markdown representation of the workflow in Section 3 of the paper; see the original Fig. 1 below.*
 
-### Original Experimental Pipeline Figure
-
-![Fig. 1 Experimental pipeline for the three compared models](figures/fig1_experimental_pipeline.png)
-
-**Fig. 1 (original, page 3).** Experimental pipeline for the three compared models. Model A uses 13 frequency-domain features; Model B uses k features selected by mutual information from a 28-dimensional representation (13 frequency-domain + 15 DWT); Model C (GDF-Net) fuses the raw segment with k features selected from a 91-feature bank. The data partition, training windows and training procedure are identical for all three models.
 
 ### Model-comparison flowchart
 
@@ -150,11 +145,6 @@ flowchart TD
 
 *Simplified Markdown representation of Fig. 3 (solid arrows: forward path; dashed arrows: training only).*
 
-### Original Architecture Diagram
-
-![Fig. 3 Architecture of GDF-Net](figures/fig3_gdfnet_architecture.png)
-
-**Fig. 3 (original, page 6).** Architecture of GDF-Net. The raw segment passes through a multi-scale convolutional branch with squeeze-and-excitation (SE) attention; the 91-feature bank is standardised, ranked by mutual information and reduced to k features before the feature branch. A sigmoid gate combines the two 64-dimensional embeddings; auxiliary heads supervise each branch during training.
 
 ## 6. Data Preprocessing
 
@@ -288,13 +278,6 @@ On this split, ensembling did not improve Model C.
 | 3 (21) | 91.92 | 93.94 | 95.15 | 91.72 | 92.73 | 96.77 |
 | 4 (99) | 88.89 | 92.73 | 97.17 | 89.29 | 92.93 | 97.58 |
 
-![Fig. 4 Test accuracy of Models A, B and C](figures/fig4_accuracy_comparison.png)
-
-**Fig. 4 (original, page 9).** Test accuracy of Models A, B and C (single network and five-network ensemble), mean ± standard deviation over four recording-level splits.
-
-![Fig. 6 Ensembles versus classical classifiers across splits](figures/fig6_ensemble_vs_classical.png)
-
-**Fig. 6 (original, page 12).** Test accuracy of the five-network ensembles of Models A, B and C and of three classical classifiers (single fits) on the four recording-level splits.
 
 ### Class-wise performance and confusion matrices
 
@@ -312,13 +295,9 @@ Ictal recall was 0.9939 for all models (164 of 165 segments). **Interictal was t
 | | Interictal | 0.9618 | 0.9152 | 0.9379 |
 | | Ictal | 0.9820 | 0.9939 | 0.9880 |
 
-![Fig. 5 Confusion matrices of the five-network ensembles](figures/fig5_confusion_matrices.png)
-
-**Fig. 5 (original, page 10).** Confusion matrices of the five-network ensembles on the primary test split (rows: true class; columns: predicted class; 165 segments per class).
 
 ### ROC curves and learned representation
 
-![Fig. 8 ROC curves and t-SNE of the fused embedding](figures/fig8_roc_and_tsne.png)
 
 **Fig. 8 (original, page 13).** One-vs-rest ROC curves of the Model C ensemble (left) and t-SNE projection of the fused embedding (right) on the primary test split. Reported macro AUC is 0.9923 (Ictal 1.000, Normal 0.989, Interictal 0.988). The t-SNE plot separated Ictal clearly, while Normal and Interictal overlapped slightly.
 
@@ -409,8 +388,4 @@ Selected references as cited in the paper (see the PDF for the full list of 37):
 7. Szegedy C, et al. (2015) Going deeper with convolutions. *Proc IEEE CVPR*, pp 1–9
 8. Arevalo J, Solorio T, Montes-y-Gómez M, González FA (2017) Gated multimodal units for information fusion. arXiv:1702.01992
 9. Lee C-Y, Xie S, Gallagher P, Zhang Z, Tu Z (2015) Deeply-supervised nets. *Proc AISTATS*, pp 562–570
-
-## 16. Disclaimer
-
-This README is a summary of the research paper *"GDF-Net: Gated Fusion of a Raw-Signal Convolutional Branch and Wavelet–Spectral Features for Three-Class EEG Classification Under Recording-Level Evaluation"* by Harinii S and Krithikalakshmi R. Figures and reported values are taken from the paper. The reported accuracies were obtained on the Bonn EEG database under a specific recording-level protocol and are **not evidence of clinical readiness**. This material is for educational and research purposes only and must not be used for medical diagnosis or treatment decisions.
 
